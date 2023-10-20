@@ -1,24 +1,19 @@
-require './caeser-cipher.rb'
+require './caeser-cipher'
 
-describe Calculator do
-  describe "#add" do
-    it "returns the sum of two numbers" do
-      calculator = Calculator.new
-      expect(calculator.add(5, 2)).to eql(7)
-    end
-    it "returns the sum of more than two numbers" do
-      calculator = Calculator.new
-      expect(calculator.add(2, 5, 7)).to eql(14)
-    end
+describe '#caeser_cipher' do
+  it 'keeps lowercase letters lowercase' do
+    expect(caeser_cipher('abcde', 1)).to eql('bcdef')
   end
-  describe "#multiply" do
-    it "returns the product of two numbers" do
-      calculator = Calculator.new
-      expect(calculator.multiply(5, 2)).to eql(10)
-    end
-    it "returns the product of more than two numbers" do
-      calculator = Calculator.new
-      expect(calculator.multiply(2, 5, 7)).to eql(70)
-    end
+  it 'keeps uppercase letters uppercase' do
+    expect(caeser_cipher('ABCDE', 1)).to eql('BCDEF')
+  end
+  it 'changes a letter by the specified number' do
+    expect(caeser_cipher('What a string!', 5)).to eql('Bmfy f xywnsl!')
+  end
+  it 'does not change spaces' do
+    expect(caeser_cipher(' ', 5)).to eql(' ')
+  end
+  it 'does not change special characters' do
+    expect(caeser_cipher('!@#^&', 5)).to eql('!@#^&')
   end
 end

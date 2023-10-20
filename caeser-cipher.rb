@@ -1,4 +1,4 @@
-def ceaser_cipher(text,num)
+def caeser_cipher(text, num)
   cipher_text = ''
   text.each_char do |c|
     if /[A-Z]/.match?(c)
@@ -15,4 +15,4 @@ def ceaser_cipher(text,num)
   cipher_text
 end
 
-puts ceaser_cipher('What a string!', 5)
+puts caeser_cipher('What a string!', 5)
